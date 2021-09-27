@@ -23,8 +23,38 @@ const options = {
   dataLabels: {
     enabled: false,
   },
+  tooltip: {
+    enabled: false,
+  },
+  xaxis: {
+    type: "datetime",
+    axisBorder: {
+      color: theme.colors.gray[600],
+    },
+    axisTicks: {
+      color: theme.colors.gray[600],
+    },
+    categories: [
+      "2021-09-01T00:00:00.000Z",
+      "2021-09-12T00:00:00.000Z",
+      "2021-09-20T00:00:00.000Z",
+      "2021-09-21T00:00:00.000Z",
+      "2021-09-22T00:00:00.000Z",
+      "2021-09-23T00:00:00.000Z",
+      "2021-09-24T00:00:00.000Z",
+    ],
+  },
+  fill: {
+    opacity: 0.3,
+    type: "gradient",
+    gradient: {
+      shade: "dark",
+      opacityFrom: 0.7,
+      opacityTo: 0.3,
+    },
+  },
 };
-const series = [{ name: "serie1", data: [31, 120, 10, 58, 18] }];
+const series = [{ name: "serie1", data: [194, 292, 193, 194, 195, 295, 197] }];
 export default function Dashboard() {
   return (
     <Flex direction="column" h="100vh">
@@ -32,16 +62,17 @@ export default function Dashboard() {
       <Flex w="100%" my="6" maxWidth="1480" mx="auto" px="6">
         <Sidebar />
         <SimpleGrid flex="1" gap="4" minChildWidth="320px" align="flex-start">
-          <Box p="8" bg="gray.800" borderRadius={8}>
+          <Box p={["6", "8"]} bg="gray.800" borderRadius={8} pb="4">
             <Text fontSize="lg" mb="4">
               Inscritos da semana
             </Text>
             <Chart type="area" height={160} options={options} series={series} />
           </Box>
-          <Box p="8" bg="gray.800" borderRadius={8}>
+          <Box p={["6", "8"]} bg="gray.800" borderRadius={8}>
             <Text fontSize="lg" mb="4">
               Taxa de abertura
             </Text>
+            <Chart type="area" height={160} options={options} series={series} />
           </Box>
         </SimpleGrid>
       </Flex>
