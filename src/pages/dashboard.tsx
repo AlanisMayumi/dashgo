@@ -55,6 +55,7 @@ const options = {
   },
 };
 const series = [{ name: "serie1", data: [194, 292, 193, 194, 195, 295, 197] }];
+
 export default function Dashboard() {
   return (
     <Flex direction="column" h="100vh">
