@@ -21,13 +21,13 @@ export function makeServer() {
           return faker.internet.email().toLowerCase();
         },
         createdAt() {
-          return faker.date.recent(10);
+          return faker.date.recent(30);
         },
       }),
     },
 
     seeds(server) {
-      server.createList("user", 10);
+      server.createList("user", 30);
     },
     routes() {
       this.namespace = "api";
